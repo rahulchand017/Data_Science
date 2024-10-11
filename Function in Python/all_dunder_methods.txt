@@ -1,0 +1,95 @@
+Dunder methods, or "magic methods," in Python are special methods that begin and end with double underscores (__). They enable you to define how objects of a class behave with built-in Python operations. Here’s a comprehensive overview of the most commonly used dunder methods:
+
+1. Object Creation and Initialization
+__new__(cls, *args, **kwargs): Called to create a new instance of a class. It is a static method.
+__init__(self, *args, **kwargs): Called to initialize the newly created object. This is where you can set attributes.
+
+
+2. String Representation
+__str__(self): Defines the "informal" string representation of an object (used by print()).
+__repr__(self): Defines the "formal" string representation of an object (used in debugging).
+
+
+3. Attribute Access and Management
+__getattr__(self, name): Called when an attribute is accessed that doesn't exist.
+__setattr__(self, name, value): Called when an attribute is set.
+__delattr__(self, name): Called when an attribute is deleted.
+__getattribute__(self, name): Called for every attribute access, whether it exists or not.
+
+
+4. Container Methods
+__len__(self): Called to get the length of an object (used by len()).
+__getitem__(self, key): Called to access an item using indexing (obj[key]).
+__setitem__(self, key, value): Called to set an item using indexing.
+__delitem__(self, key): Called to delete an item using indexing.
+__iter__(self): Returns an iterator for the object (used in loops).
+__next__(self): Returns the next item from the iterator.
+
+
+5. Arithmetic and Comparison Operators
+Arithmetic:
+
+__add__(self, other): Defines addition (+).
+__sub__(self, other): Defines subtraction (-).
+__mul__(self, other): Defines multiplication (*).
+__truediv__(self, other): Defines true division (/).
+__floordiv__(self, other): Defines floor division (//).
+__mod__(self, other): Defines modulus (%).
+__pow__(self, other): Defines exponentiation (**).
+Comparison:
+
+__eq__(self, other): Defines equality (==).
+__ne__(self, other): Defines inequality (!=).
+__lt__(self, other): Defines less than (<).
+__le__(self, other): Defines less than or equal to (<=).
+__gt__(self, other): Defines greater than (>).
+__ge__(self, other): Defines greater than or equal to (>=).
+
+
+6. Unary Operators
+__neg__(self): Defines negation (-obj).
+__pos__(self): Defines unary positive (+obj).
+__invert__(self): Defines bitwise NOT (~obj).
+
+
+7. Type Conversion
+__int__(self): Called to convert an object to an integer.
+__float__(self): Called to convert an object to a float.
+__bool__(self): Called to convert an object to a boolean (used in conditional contexts).
+
+
+8. Context Management
+__enter__(self): Called when entering a with statement.
+__exit__(self, exc_type, exc_val, exc_tb): Called when exiting a with statement.
+
+
+9. Other Methods
+__call__(self, *args, **kwargs): Allows an instance to be called as a function.
+__hash__(self): Returns a hash value for the object (used in sets and dictionaries).
+Example Implementation
+Here’s a simple example that demonstrates a few dunder methods:
+
+python
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f"Vector({self.x}, {self.y})"
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __sub__(self, other):
+        return Vector(self.x - other.x, self.y - other.y)
+
+    def __len__(self):
+        return int((self.x ** 2 + self.y ** 2) ** 0.5)
+
+# Usage
+v1 = Vector(2, 3)
+v2 = Vector(4, 5)
+print(v1)           # Vector(2, 3)
+print(v1 + v2)     # Vector(6, 8)
+print(len(v1))     # 3
