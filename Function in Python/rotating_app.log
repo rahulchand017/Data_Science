@@ -1,0 +1,6 @@
+2024-10-12 19:16:13,211 - CRITICAL - This is critical message number 98
+2024-10-12 19:16:13,220 - DEBUG - This is debug message number 99
+2024-10-12 19:16:13,223 - INFO - This is info message number 99
+2024-10-12 19:16:13,224 - WARNING - This is warning message number 99
+2024-10-12 19:16:13,225 - ERROR - This is error message number 99
+2024-10-12 19:16:13,227 - CRITICAL - This is critical message number 99
