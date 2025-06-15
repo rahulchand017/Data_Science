@@ -8,5 +8,22 @@
         "Meshgrids",
         "metascore",
         "multiindex"
+    ],
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "xprotocol",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 33060,
+            "driver": "MySQL",
+            "name": "MySql Local",
+            "username": "root",
+            "password": "1234",
+            "database": "demo",
+            "connectionTimeout": 30
+        }
     ]
 }
